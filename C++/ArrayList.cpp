@@ -69,8 +69,7 @@ void ArrayList<T>::destroy() {
 // Resizes the underlying array to 1.5x capacity
 // Allocates new memory for the new array
 template <typename T>
-void ArrayList<T>::resize() {
-    capacity *= 1.5;
+void ArrayList<T>::resize(int newCapacity) {
     T* newList = new T[newCapacity];
     for (int i = 0; i < count; i++)
         newList[i] = list[i];
@@ -120,7 +119,7 @@ int ArrayList<T>::indexOf(T item) {
 template <typename T>
 void ArrayList<T>::insert(T item) {
     if (isFull())
-        resize();
+        resize(capacity * 1.5);
 
     list[++count] = item;
 }
@@ -134,7 +133,7 @@ void ArrayList<T>::insertAt(T item, int index) {
         throw std::invalid_argument("Index out of bounds");
     
     if (isFull())
-        resize();
+        resize(capacity * 1.5);
 
     for (int i = count; i > index; i--)
         list[i] = list[i - 1];
