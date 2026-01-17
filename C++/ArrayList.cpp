@@ -23,8 +23,10 @@ ArrayList<T>::~ArrayList() {
 // Overloaded Assignment Operator
 template <typename T>
 const ArrayList<T>& ArrayList<T>::operator=(const ArrayList<T>& other) {
-    if (this != &other)
+    if (this != &other) {
+        destroy();
         copy(other);
+    }
     
     return *this;
 }
