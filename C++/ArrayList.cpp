@@ -165,3 +165,12 @@ void ArrayList<T>::removeAt(int index) {
     for (int i = index; i < count; i++)
         list[i] = list[i + 1];
 }
+
+// Removes the item at the end of the list
+template <typename T>
+void ArrayList<T>::removeLast() {
+    if (count == 0)
+        return;
+    
+    count--;
+}
