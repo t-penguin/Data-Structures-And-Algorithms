@@ -17,6 +17,8 @@ class ArrayList {
         ~ArrayList();
 
         const ArrayList<T>& operator=(const ArrayList<T>& other);
+        const T& operator[](int index) const;
+        T& operator[](int index);
 
         int getCapacity();
         int getCount();
