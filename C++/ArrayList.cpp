@@ -205,6 +205,12 @@ void ArrayList<T>::removeLast() {
     count--;
 }
 
+// Clears the list
+template <typename T>
+void ArrayList<T>::clear() {
+    count = 0;
+}
+
 // Resizes the list to match the capacity to its count
 template <typename T>
 void ArrayList<T>::shrinkToFit() {

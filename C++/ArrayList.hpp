@@ -35,6 +35,7 @@ class ArrayList {
         void remove(T item);
         void removeAt(int index);
         void removeLast();
+        void clear();
 
         void shrinkToFit();
 };
