@@ -154,8 +154,8 @@ void ArrayList<T>::remove(T item) {
     removeAt(index);
 }
 
-// Inserts an item at given index
-// Increases the capacity if the list is full
+// Removes the item at the specified index
+// Shifts the rest of the list down
 template <typename T>
 void ArrayList<T>::removeAt(int index) {
     if (index < 0 || index >= count)
