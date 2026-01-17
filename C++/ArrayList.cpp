@@ -47,6 +47,19 @@ void ArrayList<T>::destroy() {
     delete[] list;
 }
 
+// Resizes the underlying array to 1.5x capacity
+// Allocates new memory for the new array
+template <typename T>
+void ArrayList<T>::resize() {
+    capacity *= 1.5;
+    T* newList = new T[newCapacity];
+    for (int i = 0; i < count; i++)
+        newList[i] = list[i];
+    
+    delete[] list;
+    list = newList;
+}
+
 // Returns the capacity of the list
 template <typename T>
 int ArrayList<T>::getCapacity() {

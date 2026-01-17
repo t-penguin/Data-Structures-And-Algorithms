@@ -10,6 +10,7 @@ class ArrayList {
 
         void copy(const ArrayList<T>& other);
         void destroy();
+        void resize();
     public:
         ArrayList(const int& size = 10);
         ArrayList(const ArrayList<T>& other);
