@@ -104,8 +104,7 @@ void ArrayList<T>::insert(T item) {
     if (isFull())
         resize();
 
-    count++;
-    list[count] = item;
+    list[++count] = item;
 }
 
 // Inserts an item at given index
