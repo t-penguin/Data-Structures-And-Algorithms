@@ -165,7 +165,7 @@ void ArrayList<T>::removeAt(int index) {
 // Removes the item at the end of the list
 template <typename T>
 void ArrayList<T>::removeLast() {
-    if (count == 0)
+    if (isEmpty())
         return;
     
     count--;
