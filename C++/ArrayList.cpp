@@ -44,10 +44,7 @@ const T& ArrayList<T>::operator[](int index) const {
 // Overloaded non-const Access Operator
 template <typename T>
 T& ArrayList<T>::operator[](int index) {
-    if (index < 0 || index > count)
-        throw std::invalid_argument("Index out of bounds");
-    
-    return list[index];
+    return const_cast<T&>(*this).operator[](index);
 }
 
 // Copy Helper Function
