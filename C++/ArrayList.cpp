@@ -35,7 +35,7 @@ const ArrayList<T>& ArrayList<T>::operator=(const ArrayList<T>& other) {
 // Overloaded const Access Operator
 template <typename T>
 const T& ArrayList<T>::operator[](int index) const {
-    if (index < 0 || index > count)
+    if (index < 0 || index >= count)
         throw std::out_of_range("Index out of bounds");
     
     return list[index];
@@ -160,7 +160,7 @@ void ArrayList<T>::insert(T item) {
 // Shifts the rest of the list up by 1
 template <typename T>
 void ArrayList<T>::insertAt(T item, int index) {
-    if (index < 0 || index > count)
+    if (index < 0 || index >= count)
         throw std::out_of_range("Index out of bounds");
     
     if (isFull())
