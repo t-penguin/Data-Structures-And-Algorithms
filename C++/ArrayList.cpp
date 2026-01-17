@@ -36,7 +36,7 @@ const ArrayList<T>& ArrayList<T>::operator=(const ArrayList<T>& other) {
 template <typename T>
 const T& ArrayList<T>::operator[](int index) const {
     if (index < 0 || index > count)
-        throw std::invalid_argument("Index out of bounds");
+        throw std::out_of_range("Index out of bounds");
     
     return list[index];
 }
@@ -127,7 +127,7 @@ void ArrayList<T>::insert(T item) {
 template <typename T>
 void ArrayList<T>::insertAt(T item, int index) {
     if (index < 0 || index > count)
-        throw std::invalid_argument("Index out of bounds");
+        throw std::out_of_range("Index out of bounds");
     
     if (isFull())
         resize(capacity * 1.5);
@@ -155,7 +155,7 @@ void ArrayList<T>::remove(T item) {
 template <typename T>
 void ArrayList<T>::removeAt(int index) {
     if (index < 0 || index >= count)
-        throw std::invalid_argument("Index out of bounds");
+        throw std::out_of_range("Index out of bounds");
     
     count--;
     for (int i = index; i < count; i++)
