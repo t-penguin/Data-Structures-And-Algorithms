@@ -19,9 +19,9 @@ class ArrayList {
 
         int getCapacity();
         int getCount();
-        int indexOf(T item);
         bool isEmpty();
         bool isFull();
+        int indexOf(T item);
 
         void insert(T item);
         void insertAt(T item, int index);
