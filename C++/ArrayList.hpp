@@ -20,11 +20,11 @@ class ArrayList {
         const T& operator[](int index) const;
         T& operator[](int index);
 
-        int getCapacity();
-        int getCount();
-        bool isEmpty();
-        bool isFull();
-        int indexOf(T item);
+        int getCapacity() const;
+        int getCount() const;
+        bool isEmpty() const;
+        bool isFull() const;
+        int indexOf(T item) const;
 
         void insert(T item);
         void insertAt(T item, int index);

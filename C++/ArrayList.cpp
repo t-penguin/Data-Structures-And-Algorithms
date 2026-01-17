@@ -80,25 +80,25 @@ void ArrayList<T>::resize(int newCapacity) {
 
 // Returns the capacity of the list
 template <typename T>
-int ArrayList<T>::getCapacity() {
+int ArrayList<T>::getCapacity() const {
     return capacity;
 }
 
 // Returns the count of items in the list
 template <typename T>
-int ArrayList<T>::getCount() {
+int ArrayList<T>::getCount() const {
     return count;
 }
 
 // Returns whether or not the list is empty
 template <typename T>
-bool ArrayList<T>::isEmpty() {
+bool ArrayList<T>::isEmpty() const {
     return count == 0;
 }
 
 // Returns whether or not the list is full
 template <typename T>
-bool ArrayList<T>::isFull() {
+bool ArrayList<T>::isFull() const {
     return count == capacity;
 }
 
@@ -106,7 +106,7 @@ bool ArrayList<T>::isFull() {
 // Returns the index of the item if found
 // Returns -1 otherwise
 template <typename T>
-int ArrayList<T>::indexOf(T item) {
+int ArrayList<T>::indexOf(T item) const {
     for (int i = 0; i < count; i++)
         if (list[i] == item)
             return i;
