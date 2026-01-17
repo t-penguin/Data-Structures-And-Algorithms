@@ -47,4 +47,38 @@ void ArrayList<T>::destroy() {
     delete[] list;
 }
 
+// Returns the capacity of the list
+template <typename T>
+int ArrayList<T>::getCapacity() {
+    return capacity;
+}
 
+// Returns the count of items in the list
+template <typename T>
+int ArrayList<T>::getCount() {
+    return count;
+}
+
+// Returns whether or not the list is empty
+template <typename T>
+bool ArrayList<T>::isEmpty() {
+    return count == 0;
+}
+
+// Returns whether or not the list is full
+template <typename T>
+bool ArrayList<T>::isFull() {
+    return count == capacity;
+}
+
+// Performs a linear search to find an item in the list
+// Returns the index of the item if found
+// Returns -1 otherwise
+template <typename T>
+int ArrayList<T>::indexOf(T item) {
+    for (int i = 0; i < count; i++)
+        if (list[i] == item)
+            return i;
+    
+    return -1;
+}
