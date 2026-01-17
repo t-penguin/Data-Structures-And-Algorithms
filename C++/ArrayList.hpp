@@ -77,6 +77,43 @@ class ArrayList {
                     return listRef != other.listRef || index != other.index;
                 }
         };
+
+        class r_iterator
+        {
+            private:
+                ArrayList<T>& listRef;
+                int index;
+            public:
+                using value_type = T;   // Type that this iterator points to
+                using difference_type = std::ptrdiff_t; // Type used for finding difference between iterators
+                using pointer = T*;     // Pointer to value_type
+                using reference = T&;   // Reference to value_type
+                using iterator_category = std::forward_iterator_tag;
+
+                // Constructor performs bounds check
+                // -1 is a valid index to represent end state
+                f_iterator(ArrayList<T>& list, const int pos) : listRef(list), index(pos) {
+                    if (index < -1 || index >= listRef.getCount())
+                        throw std::out_of_range("Index out of bounds");
+                }
+
+                // Dereference operator
+                // ArrayList access already performs bounds check
+                reference operator*() const { return listRef[index]; }
+
+                f_iterator& operator++() {
+                    index--;
+                    return *this;
+                }
+
+                bool operator==(const f_iterator& other) const {
+                    return listRef == other.listRef && index == other.index;
+                }
+
+                bool operator!=(const f_iterator& other) const {
+                    return listRef != other.listRef || index != other.index;
+                }
+        };
 };
 
 #endif
