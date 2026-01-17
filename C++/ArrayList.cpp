@@ -1,4 +1,5 @@
 #include <ArrayList.hpp>
+#include <stdexcept>
 
 // Constructor
 template <typename T>
@@ -94,4 +95,32 @@ int ArrayList<T>::indexOf(T item) {
             return i;
     
     return -1;
+}
+
+// Inserts an item at the end of the list
+// Increases the capacity if the list is full
+template <typename T>
+void ArrayList<T>::insert(T item) {
+    if (isFull())
+        resize();
+
+    count++;
+    list[count] = item;
+}
+
+// Inserts an item at given index
+// Increases the capacity if the list is full
+template <typename T>
+void ArrayList<T>::insertAt(T item, int index) {
+    if (index < 0 || index > count + 1)
+        throw std::invalid_argument("Index out of bounds");
+    
+    if (isFull())
+        resize();
+
+    count++;
+    for (int i = count; i > index; i--)
+        list[i] = list[i - 1];
+    
+    list[index] = item;
 }
