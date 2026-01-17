@@ -114,6 +114,12 @@ class ArrayList {
                     return listRef != other.listRef || index != other.index;
                 }
         };
+
+        f_iterator begin() const;
+        f_iterator end() const;
+
+        r_iterator rbegin() const;
+        r_iterator rend() const;
 };
 
 #endif

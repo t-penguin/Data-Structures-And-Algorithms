@@ -216,3 +216,27 @@ template <typename T>
 void ArrayList<T>::shrinkToFit() {
     resize(count);
 }
+
+// Returns a forward iterator pointing to the beginning of the list
+template <typename T>
+typename ArrayList<T>::f_iterator ArrayList<T>::begin() const {
+    return f_iterator(*this, 0);
+}
+
+// Returns a forward iterator pointing to the end of the list
+template <typename T>
+typename ArrayList<T>::f_iterator ArrayList<T>::end() const {
+    return f_iterator(*this, count);
+}
+
+// Returns a reverse iterator pointing to the beginning of the list
+template <typename T>
+typename ArrayList<T>::r_iterator ArrayList<T>::rbegin() const {
+    return f_iterator(*this, count - 1);
+}
+
+// Returns a reverse iterator pointing to the end of the list
+template <typename T>
+typename ArrayList<T>::r_iterator ArrayList<T>::rend() const {
+    return f_iterator(*this, -1);
+}
