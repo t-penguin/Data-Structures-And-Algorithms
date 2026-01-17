@@ -109,17 +109,19 @@ void ArrayList<T>::insert(T item) {
 
 // Inserts an item at given index
 // Increases the capacity if the list is full
+// Shifts the rest of the list up by 1
 template <typename T>
 void ArrayList<T>::insertAt(T item, int index) {
-    if (index < 0 || index > count + 1)
+    if (index < 0 || index > count)
         throw std::invalid_argument("Index out of bounds");
     
     if (isFull())
         resize();
 
-    count++;
     for (int i = count; i > index; i--)
         list[i] = list[i - 1];
     
     list[index] = item;
+    count++;
+}
 }
