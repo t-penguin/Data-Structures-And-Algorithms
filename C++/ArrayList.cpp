@@ -124,4 +124,26 @@ void ArrayList<T>::insertAt(T item, int index) {
     list[index] = item;
     count++;
 }
+
+// Removes the first instance of an item in a list
+// Shifts the rest of the list down
+template <typename T>
+void ArrayList<T>::remove(T item) {
+    int index = indexOf(item);
+    if (index < 0)
+        return;
+    
+    removeAt(index);
+}
+
+// Inserts an item at given index
+// Increases the capacity if the list is full
+template <typename T>
+void ArrayList<T>::removeAt(int index) {
+    if (index < 0 || index >= count)
+        throw std::invalid_argument("Index out of bounds");
+    
+    count--;
+    for (int i = index; i < count; i++)
+        list[i] = list[i + 1];
 }
