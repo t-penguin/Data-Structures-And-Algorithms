@@ -111,6 +111,40 @@ int ArrayList<T>::indexOf(T item) const {
     return -1;
 }
 
+// Returns a const reference to the first item in the list
+// Throws an out of range error if the list is empty
+template <typename T>
+const T& ArrayList<T>::front() const {
+    if (isEmpty())
+        throw std::out_of_range("Cannot get front of empty list");
+    
+    return list[0];
+}
+
+// Returns a const reference to the last item in the list
+// Throws an out of range error if the list is empty
+template <typename T>
+const T& ArrayList<T>::back() const {
+    if (isEmpty())
+        throw std::out_of_range("Cannot get back of empty list");
+    
+    return list[count - 1];
+}
+
+// Returns a reference to the first item in the list
+// Throws an out of range error if the list is empty
+template <typename T>
+T& ArrayList<T>::front() {
+    return const_cast<T&>(*this).front();
+}
+
+// Returns a reference to the first item in the list
+// Throws an out of range error if the list is empty
+template <typename T>
+T& ArrayList<T>::back() {
+    return const_cast<T&>(*this).back();
+}
+
 // Inserts an item at the end of the list
 // Increases the capacity if the list is full
 template <typename T>

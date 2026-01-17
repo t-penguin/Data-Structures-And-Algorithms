@@ -25,6 +25,10 @@ class ArrayList {
         bool isEmpty() const;
         bool isFull() const;
         int indexOf(T item) const;
+        const T& front() const;
+        const T& back() const;
+        T& front();
+        T& back(); 
 
         void insert(T item);
         void insertAt(T item, int index);
