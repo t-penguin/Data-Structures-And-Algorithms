@@ -165,3 +165,46 @@ template <typename T>
 T& LinkedList<T>::back() {
     return const_cast<T&>(*this).back();
 }
+
+// Inserts the given item at the end of the list
+template <typename T>
+void LinkedList<T>::insert(T item) {
+    Node<T>* newNode = new Node<T>(item);
+    // Case 1: List has no nodes
+    if (isEmpty()) {
+        first = newNode;
+        last = newNode;
+        return;
+    }
+
+    // Case 2: List has at least one node
+    last->next = newNode;
+    last++;
+}
+
+// Inserts the given item at the specified index
+// Performs a bounds check
+template <typename T>
+void LinkedList<T>::insertAt(T item, int index) {
+    if (index < 0 || index > size)
+        throw std::out_of_range("Index out of bounds");
+    
+    // Case 1: Inserting at the end of the list
+    if (isEmpty() || index == size) {
+        insert(item);
+        return;
+    }
+    
+    Node<T>* newNode = new Node<T>(item);
+    // Case 2: Inserting at the front of the list
+    if (index == 0) {
+        newNode->next = first;
+        first = newNode;
+        return;
+    }
+
+    // Case 3: Inserting somewhere in the middle of the list
+    Node<T>* curNode = (*this)[index - 1];
+    newNode->next = curNode->next;
+    curNode->next = newNode;
+}
