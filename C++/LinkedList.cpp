@@ -87,7 +87,7 @@ const T& LinkedList<T>::operator[](int index) const {
         index--;
     }
     
-    return curNode;
+    return curNode->info;
 }
 
 // Overloaded non-const access operator
