@@ -39,6 +39,15 @@ class LinkedList {
         const LinkedList<T>& operator=(const LinkedList<T>& other);
         const T& operator[](int index) const;
         T& operator[](int index);
+
+        int getSize() const;
+        bool isEmpty() const;
+        int indexOf(T item) const;
+        bool contains(T item) const;
+        const T& front() const;
+        const T& back() const;
+        T& front();
+        T& back();
 };
 
 #endif

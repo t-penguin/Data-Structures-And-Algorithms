@@ -95,3 +95,73 @@ template <typename T>
 T& LinkedList<T>::operator[](int index) {
     return const_cast<T&>(*this).operator[](index);
 }
+
+// Returns the size of the list
+template <typename T>
+int LinkedList<T>::getSize() const {
+    return size;
+}
+
+// Returns whether or not the list is empty
+template <typename T>
+bool LinkedList<T>::isEmpty() const {
+    return size == 0;
+}
+
+// Returns the index of the item in the list if found
+// Returns -1 if not found
+template <typename T>
+int LinkedList<T>::indexOf(T item) const {
+    int index = 0;
+    Node<T>* curNode = first;
+
+    while (curNode != nullptr) {
+        if (curNode->info == item)
+            return index;
+        
+        index++;
+        curNode++;
+    }
+
+    return -1;
+}
+
+// Returns whether or not the item is in the list
+template <typename T>
+bool LinkedList<T>::contains(T item) const {
+    return indexOf(item) != -1;
+}
+
+// Returns a const reference to the first item in the list
+// Throws an out of range error if the list is empty
+template <typename T>
+const T& LinkedList<T>::front() const {
+    if (isEmpty())
+        throw std::out_of_range("Cannot get front of empty list");
+
+    return first->info;
+}
+
+// Returns a const reference to the first item in the list
+// Throws an out of range error if the list is empty
+template <typename T>
+const T& LinkedList<T>::back() const {
+    if (isEmpty())
+        throw std::out_of_range("Cannot get back of empty list");
+    
+    return last->info;
+}
+
+// Returns a non-const reference to the first item in the list
+// Throws an out of range error if the list is empty
+template <typename T>
+T& LinkedList<T>::front() {
+    return const_cast<T&>(*this).front();
+}
+
+// Returns a non-const reference to the first item in the list
+// Throws an out of range error if the list is empty
+template <typename T>
+T& LinkedList<T>::back() {
+    return const_cast<T&>(*this).back();
+}
