@@ -57,7 +57,7 @@ void ArrayList<T>::copy(const ArrayList<T>& other) {
         list[i] = other.list[i];
 }
 
-// Destory Helper Function
+// Destroy Helper Function
 template <typename T>
 void ArrayList<T>::destroy() {
     delete[] list;
