@@ -36,9 +36,11 @@ void LinkedList<T>::copy(const LinkedList<T>& other) {
 
     // Iterate through list, copying nodes
     Node<T>* curNode = first;
-    otherNode = otherNode->next;
-    while (otherNode != nullptr)
+    otherNode++;
+    while (otherNode != nullptr) {
         curNode->next = new Node<T>(otherNode->info);
+        otherNode++;
+    }
     
     curNode->next = nullptr;
 }
@@ -50,7 +52,7 @@ void LinkedList<T>::destroy() {
     Node<T>* curNode;
     while (first != nullptr) {
         curNode = first;
-        first = first->next;
+        first++;
         delete curNode;
     }
 }
