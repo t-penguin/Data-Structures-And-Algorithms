@@ -16,7 +16,13 @@ class LinkedList {
     private:
         int size;
         Node<T>* first;
+
+        void copy(const LinkedList<T>& other);
+        void destroy();
     public:
+        LinkedList();
+        LinkedList(const LinkedList<T>& other);
+        ~LinkedList();
 };
 
 #endif
