@@ -6,6 +6,7 @@ template <typename T>
 LinkedList<T>::LinkedList() {
     size = 0;
     first = nullptr;
+    last = nullptr;
 }
 
 // Copy Constructor
@@ -42,6 +43,7 @@ void LinkedList<T>::copy(const LinkedList<T>& other) {
         otherNode++;
     }
     
+    last = curNode;
     curNode->next = nullptr;
 }
 
@@ -55,6 +57,9 @@ void LinkedList<T>::destroy() {
         first++;
         delete curNode;
     }
+
+    first = nullptr;
+    last = nullptr;
 }
 
 // Overloaded assignment operator
@@ -72,6 +77,9 @@ template <typename T>
 const T& LinkedList<T>::operator[](int index) const {
     if (index < 0 || index >= size)
         throw std::out_of_range("Index out of bounds");
+
+    if (index == size - 1)
+        return last->info;
     
     Node<T>* curNode = first;
     while (index > 0) {

@@ -27,6 +27,7 @@ class LinkedList {
     private:
         int size;
         Node<T>* first;
+        Node<T>* last;
 
         void copy(const LinkedList<T>& other);
         void destroy();
