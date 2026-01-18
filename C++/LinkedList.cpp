@@ -54,3 +54,34 @@ void LinkedList<T>::destroy() {
         delete curNode;
     }
 }
+
+// Overloaded assignment operator
+template <typename T>
+const LinkedList<T>& LinkedList<T>::operator=(const LinkedList<T>& other) {
+    if (this != &other)
+        destroy();
+    
+    copy(other);
+    return *this;
+}
+
+// Overloaded const access operator
+template <typename T>
+const T& LinkedList<T>::operator[](int index) const {
+    if (index < 0 || index >= size)
+        throw std::out_of_range("Index out of bounds");
+    
+    Node<T>* curNode = first;
+    while (index > 0) {
+        curNode++;
+        index--;
+    }
+    
+    return curNode;
+}
+
+// Overloaded non-const access operator
+template <typename T>
+T& LinkedList<T>::operator[](int index) {
+    return const_cast<T&>(*this).operator[](index);
+}

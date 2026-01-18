@@ -34,6 +34,10 @@ class LinkedList {
         LinkedList();
         LinkedList(const LinkedList<T>& other);
         ~LinkedList();
+
+        const LinkedList<T>& operator=(const LinkedList<T>& other);
+        const T& operator[](int index) const;
+        T& operator[](int index);
 };
 
 #endif
