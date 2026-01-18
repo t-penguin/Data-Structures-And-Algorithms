@@ -9,6 +9,17 @@ struct Node {
     Node<T>* next;
 
     Node(T item) : info(item), next(nullptr) {}
+    
+    Node<T>& operator++() { 
+        this = this->next;
+        return *this;
+    }
+
+    Node<T>& operator++(int) {
+        Node<T> temp(*this);
+        this = this->next;
+        return temp;
+    }
 };
 
 template <typename T>
