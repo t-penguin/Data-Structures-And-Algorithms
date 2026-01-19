@@ -295,3 +295,15 @@ template <typename T>
 void LinkedList<T>::clear() {
     destroy();
 }
+
+// Returns an iterator pointing to the beginning of the list
+template <typename T>
+LinkedList<T>::f_iterator LinkedList<T>::begin() const {
+    return f_iterator(first);
+}
+
+// Returns an iterator representing one after the end of the list
+template <typename T>
+LinkedList<T>::f_iterator LinkedList<T>::end() const {
+    return f_iterator(nullptr);
+}

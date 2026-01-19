@@ -56,6 +56,32 @@ class LinkedList {
         void removeFirst();
         void removeLast();
         void clear();
+
+        class f_iterator
+        {
+            private:
+                Node<T>* node;
+            public:
+                using value_type = T;   // Type that this iterator points to
+                using difference_type = std::ptrdiff_t; // Type used for finding difference between iterators
+                using pointer = T*;     // Pointer to value_type
+                using reference = T&;   // Reference to value_type
+                using iterator_category = std::forward_iterator_tag;
+
+                f_iterator(Node<T>* node) : node(node) {}
+
+                reference operator*() const { return node->info; }
+                f_iterator& operator++() {
+                    node++;
+                    return *this;
+                }
+
+                bool operator==(const f_iterator& other) const { return node == other.node; }
+                bool operator!=(const f_iterator& other) const { return node != other.node; }
+        };
+
+        f_iterator begin() const;
+        f_iterator end() const;
 };
 
 #endif
