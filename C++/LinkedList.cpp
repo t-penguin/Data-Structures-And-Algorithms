@@ -208,3 +208,90 @@ void LinkedList<T>::insertAt(T item, int index) {
     newNode->next = curNode->next;
     curNode->next = newNode;
 }
+
+// Removes the first instance of the specified item
+template <typename T>
+void LinkedList<T>::remove(T item) {
+    // Case 1: List has no nodes
+    if (isEmpty())
+        return;
+    
+    // Case 2: Removing the first node
+    if (first->info == item) {
+        removeFirst();
+        return;
+    }
+        
+    // Search for first node with matching info
+    Node<T>* prevNode = first;
+    Node<T>* curNode = prevNode->next;
+    while (curNode != nullptr && curNode->info != item) {
+        prevNode++;
+        curNode++;
+    }
+    
+    // Case 3: Item is not in list
+    if (curNode == nullptr)
+        return;
+
+    // Case 4: Removing node somewhere in the middle of the list
+    prevNode->next = curNode->next;
+    delete curNode;
+
+    // Case 5: Case 4 removed last node
+    if (prevNode->next == nullptr)
+        last = prevNode;
+    
+    size--;
+}
+
+// Removes the item at the specified index
+// Performs a bounds check
+template <typename T>
+void LinkedList<T>::removeAt(int index) {
+    if (index < 0 || index > size)
+        throw std::out_of_range("Index out of bounds");
+    
+    // Case 1: Removing the first node
+    if (index == 0) {
+        removeFirst();
+        return;
+    }
+
+    // Case 2: Removing the last node
+    if (index == size - 1) {
+        removeLast();
+        return;
+    }
+    
+    // Case 3: Removing node somewhere in the middle of the list
+    Node<T>* prevNode = (*this)[index - 1];
+    Node<T>* temp = prevNode->next;
+    prevNode->next = temp->next;
+    delete temp;
+    size--;
+}
+
+// Removes the first node in the list
+template <typename T>
+void LinkedList<T>::removeFirst() {
+    Node<T>* temp = first;
+    first++;
+    delete temp;
+    size--;
+}
+
+// Removes the last node in the list
+template <typename T>
+void LinkedList<T>::removeLast() {
+    delete last;
+    last = (*this)[size - 1];
+    last->next = nullptr;
+    size--;
+}
+
+// Clears the entire list
+template <typename T>
+void LinkedList<T>::clear() {
+    destroy();
+}

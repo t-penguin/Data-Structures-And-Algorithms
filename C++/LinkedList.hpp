@@ -51,6 +51,11 @@ class LinkedList {
         
         void insert(T item);
         void insertAt(T item, int index);
+        void remove(T item);
+        void removeAt(int index);
+        void removeFirst();
+        void removeLast();
+        void clear();
 };
 
 #endif
