@@ -24,7 +24,7 @@ struct Node {
 
 template <typename T>
 class LinkedList {
-    private:
+    protected:
         int size;
         Node<T>* first;
         Node<T>* last;
