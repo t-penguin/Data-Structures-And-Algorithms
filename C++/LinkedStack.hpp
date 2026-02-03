@@ -13,9 +13,9 @@ class LinkedStack : protected LinkedList
 
         const LinkedStack<T>& operator=(const LinkedStack<T>& other);
 
-        int getSize() const;
+        std::size_t getSize() const;
         bool isEmpty() const;
-        int indexOf(T item) const;
+        std::size_t indexOf(T item) const;
         bool contains(T item) const;
         const T& top() const;
         T& top();
