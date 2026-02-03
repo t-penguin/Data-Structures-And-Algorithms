@@ -61,6 +61,20 @@ T& LinkedStack<T>::top() {
     return const_cast<T&>(*this).top();
 }
 
-void push(T item);
-void pop(T item);
-void clear();
+// Inserts an item at the top of the stack
+template <typename T>
+void LinkedStack<T>::push(T item) {
+    LinkedList<T>::insert(item);
+}
+
+// Removes the top item of the stack
+template <typename T>
+void LinkedStack<T>::pop(T item) {
+    LinkedList<T>::removeLast();
+}
+
+// Clears the stack
+template <typename T>
+void LinkedStack<T>::clear() {
+    LinkedList<T>::clear();
+}
