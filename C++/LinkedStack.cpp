@@ -51,7 +51,7 @@ bool LinkedStack<T>::contains(T item) const {
 // Throws an out of range error if the stack is empty
 template <typename T>
 const T& LinkedStack<T>::top() const {
-    return LinkedList<T>::back();
+    return LinkedList<T>::front();
 }
 
 // Returns a non-const reference to the top item of the stack
@@ -64,13 +64,13 @@ T& LinkedStack<T>::top() {
 // Inserts an item at the top of the stack
 template <typename T>
 void LinkedStack<T>::push(T item) {
-    LinkedList<T>::insert(item);
+    LinkedList<T>::insertAt(item, 0);
 }
 
 // Removes the top item of the stack
 template <typename T>
 void LinkedStack<T>::pop(T item) {
-    LinkedList<T>::removeLast();
+    LinkedList<T>::removeFirst();
 }
 
 // Clears the stack
