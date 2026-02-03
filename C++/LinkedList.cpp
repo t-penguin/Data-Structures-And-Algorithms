@@ -65,10 +65,11 @@ void LinkedList<T>::destroy() {
 // Overloaded assignment operator
 template <typename T>
 const LinkedList<T>& LinkedList<T>::operator=(const LinkedList<T>& other) {
-    if (this != &other)
+    if (this != &other) {
         destroy();
+        copy(other);
+    }
     
-    copy(other);
     return *this;
 }
 
