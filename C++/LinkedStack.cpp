@@ -78,3 +78,15 @@ template <typename T>
 void LinkedStack<T>::clear() {
     LinkedList<T>::clear();
 }
+
+// Returns an iterator pointing to the top of the stack
+template <typename T>
+LinkedList<T>::f_iterator LinkedStack<T>::begin() const {
+    return LinkedList<T>::begin();
+}
+
+// Returns an iterator representing one after the end of the list
+template <typename T>
+LinkedList<T>::f_iterator LinkedStack<T>::end() const {
+    return LinkedList<T>::end();
+}

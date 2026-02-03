@@ -23,6 +23,9 @@ class LinkedStack : protected LinkedList
         void push(T item);
         void pop(T item);
         void clear();
+
+        LinkedList<T>::f_iterator begin() const;
+        LinkedList<T>::f_iterator end() const;
 };
 
 #endif
