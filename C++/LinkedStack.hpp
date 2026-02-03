@@ -4,9 +4,8 @@
 #include "LinkedList.hpp"
 
 template <typename T>
-class LinkedStack : protected LinkedList {
-    private:
-        
+class LinkedStack : protected LinkedList
+{
     public:
         LinkedStack();
         LinkedStack(const LinkedStack<T>& other);
