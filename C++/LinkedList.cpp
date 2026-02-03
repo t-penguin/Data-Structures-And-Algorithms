@@ -75,7 +75,7 @@ const LinkedList<T>& LinkedList<T>::operator=(const LinkedList<T>& other) {
 
 // Overloaded const access operator
 template <typename T>
-const T& LinkedList<T>::operator[](int index) const {
+const T& LinkedList<T>::operator[](std::size_t index) const {
     if (index < 0 || index >= size)
         throw std::out_of_range("Index out of bounds");
 
@@ -93,13 +93,13 @@ const T& LinkedList<T>::operator[](int index) const {
 
 // Overloaded non-const access operator
 template <typename T>
-T& LinkedList<T>::operator[](int index) {
+T& LinkedList<T>::operator[](std::size_t index) {
     return const_cast<T&>(*this).operator[](index);
 }
 
 // Returns the size of the list
 template <typename T>
-int LinkedList<T>::getSize() const {
+std::size_t LinkedList<T>::getSize() const {
     return size;
 }
 
@@ -112,7 +112,7 @@ bool LinkedList<T>::isEmpty() const {
 // Returns the index of the item in the list if found
 // Returns -1 if not found
 template <typename T>
-int LinkedList<T>::indexOf(T item) const {
+std::size_t LinkedList<T>::indexOf(T item) const {
     int index = 0;
     Node<T>* curNode = first;
 
@@ -186,7 +186,7 @@ void LinkedList<T>::insert(T item) {
 // Inserts the given item at the specified index
 // Performs a bounds check
 template <typename T>
-void LinkedList<T>::insertAt(T item, int index) {
+void LinkedList<T>::insertAt(T item, std::size_t index) {
     if (index < 0 || index > size)
         throw std::out_of_range("Index out of bounds");
     
@@ -249,7 +249,7 @@ void LinkedList<T>::remove(T item) {
 // Removes the item at the specified index
 // Performs a bounds check
 template <typename T>
-void LinkedList<T>::removeAt(int index) {
+void LinkedList<T>::removeAt(std::size_t index) {
     if (index < 0 || index > size)
         throw std::out_of_range("Index out of bounds");
     

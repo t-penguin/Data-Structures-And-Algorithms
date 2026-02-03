@@ -25,7 +25,7 @@ struct Node {
 template <typename T>
 class LinkedList {
     protected:
-        int size;
+        std::size_t size;
         Node<T>* first;
         Node<T>* last;
 
@@ -37,12 +37,12 @@ class LinkedList {
         ~LinkedList();
 
         const LinkedList<T>& operator=(const LinkedList<T>& other);
-        const T& operator[](int index) const;
-        T& operator[](int index);
+        const T& operator[](std::size_t index) const;
+        T& operator[](std::size_t index);
 
-        int getSize() const;
+        std::size_t getSize() const;
         bool isEmpty() const;
-        int indexOf(T item) const;
+        std::size_t indexOf(T item) const;
         bool contains(T item) const;
         const T& front() const;
         const T& back() const;
@@ -50,9 +50,9 @@ class LinkedList {
         T& back();
         
         void insert(T item);
-        void insertAt(T item, int index);
+        void insertAt(T item, std::size_t index);
         void remove(T item);
-        void removeAt(int index);
+        void removeAt(std::size_t index);
         void removeFirst();
         void removeLast();
         void clear();
