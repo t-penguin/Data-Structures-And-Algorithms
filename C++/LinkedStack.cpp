@@ -21,3 +21,46 @@ const LinkedStack<T>& LinkedStack<T>::operator=(const LinkedStack<T> &other) {
     
     return *this;
 }
+
+// Returns the size of the stack
+template <typename T>
+std::size_t LinkedStack<T>::getSize() const {
+    return LinkedList<T>::getSize();
+}
+
+// Returns whether or not the stack is empty
+template <typename T>
+bool LinkedStack<T>::isEmpty() const {
+    return LinkedList<T>::isEmpty();
+}
+
+// Returns the index of the first occurance of an item in the stack if found
+// Returns -1 if not found
+template <typename T>
+std::size_t LinkedStack<T>::indexOf(T item) const {
+    return LinkedList<T>::indexOf(item);
+}
+
+// Returns whether or not the item is in the stack
+template <typename T>
+bool LinkedStack<T>::contains(T item) const {
+    return LinkedList<T>::contains(item);
+}
+
+// Returns a const reference to the top item of the stack
+// Throws an out of range error if the stack is empty
+template <typename T>
+const T& LinkedStack<T>::top() const {
+    return LinkedList<T>::back();
+}
+
+// Returns a non-const reference to the top item of the stack
+// Throws an out of range error if the stack is empty
+template <typename T>
+T& LinkedStack<T>::top() {
+    return const_cast<T&>(*this).top();
+}
+
+void push(T item);
+void pop(T item);
+void clear();
